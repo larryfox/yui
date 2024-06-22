@@ -11,7 +11,7 @@ if exists('syntax_on')
 endif
 
 let g:colors_name = 'yui'
-	
+
 hi Normal guifg=#504944 ctermfg=239 guibg=#f1eded ctermbg=255
 hi NormalNC guifg=#4b4440 ctermfg=238 guibg=#eae4e4 ctermbg=254
 hi! link MsgArea Normal
@@ -24,14 +24,14 @@ hi CursorLine guifg=NONE ctermfg=NONE guibg=#eae4e4 ctermbg=254 gui=NONE cterm=N
 hi! link lCursor Cursor
 hi! link CursorIM Cursor
 hi DiffAdd guifg=#38551E ctermfg=237 guibg=#daf3c5 ctermbg=194
-hi DiffChange guifg=#554717 ctermfg=58 guibg=#fee264 ctermbg=221
+hi DiffChange guifg=#736521 ctermfg=94 guibg=#fdf0c5 ctermbg=230
 hi DiffDelete guifg=#A50303 ctermfg=124 guibg=#ffebeb ctermbg=255 gui=NONE cterm=NONE
 hi DiffText guifg=#1E5571 ctermfg=23 guibg=#bcbee8 ctermbg=146
 hi Directory guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE
 hi ErrorMsg guifg=#A50303 ctermfg=124 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi Constant guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi! link String Constant
-hi! link Character Constant
+hi String guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=italic cterm=italic
+hi! link Character String
 hi! link Number Constant
 hi! link Boolean Constant
 hi! link Float Constant
@@ -66,7 +66,7 @@ hi! link Todo DiffChange
 hi MatchParen guifg=#A50303 ctermfg=124 guibg=#ffebeb ctermbg=255 gui=bold cterm=bold
 hi ModeMsg guifg=#1E5571 ctermfg=23 guibg=#bcbee8 ctermbg=146 gui=NONE cterm=NONE
 hi MoreMsg guifg=#1E5571 ctermfg=23 guibg=#bcbee8 ctermbg=146 gui=NONE cterm=NONE
-hi WarningMsg guifg=#554717 ctermfg=58 guibg=#fee264 ctermbg=221 gui=NONE cterm=NONE
+hi WarningMsg guifg=#736521 ctermfg=94 guibg=#fdf0c5 ctermbg=230 gui=NONE cterm=NONE
 hi! link Whitespace NonText
 hi TabLine guifg=#655b5b ctermfg=59 guibg=#dfd5d5 ctermbg=188 gui=NONE cterm=NONE
 hi! link TabLineSel StatusLine
@@ -119,7 +119,7 @@ hi! link DiagnosticUnnecessary DiagnosticHint
 hi DiagnosticFloatingError guifg=#A50303 ctermfg=124 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi DiagnosticFloatingHint guifg=#38551E ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi DiagnosticFloatingInfo guifg=#1E5571 ctermfg=23 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi DiagnosticFloatingWarn guifg=#554717 ctermfg=58 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi DiagnosticFloatingWarn guifg=#736521 ctermfg=94 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi DiagnosticUnderlineError guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE guisp=#A50303 gui=undercurl cterm=undercurl
 hi DiagnosticUnderlineHint guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE guisp=#38551E gui=undercurl cterm=undercurl
 hi DiagnosticUnderlineInfo guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE guisp=#1E5571 gui=undercurl cterm=undercurl
@@ -188,7 +188,7 @@ hi! link diffComment Comment
 hi GitSignsAdd guifg=#5e8a36 ctermfg=65 guibg=NONE ctermbg=NONE
 hi! link GitSignsAddNr GitSignsAdd
 hi! link GitSignsAddLn GitSignsAdd
-hi GitSignsChange guifg=#aa9037 ctermfg=137 guibg=NONE ctermbg=NONE
+hi GitSignsChange guifg=#cab241 ctermfg=179 guibg=NONE ctermbg=NONE
 hi! link GitSignsChangeNr DiffChange
 hi! link GitSignsChangeLn DiffChange
 hi GitSignsDelete guifg=#fe1e1e ctermfg=196 guibg=NONE ctermbg=NONE
@@ -303,7 +303,7 @@ elseif s:yui_folds_value ==? 'emphasize'
 	hi FoldColumn guifg=#443e39 ctermfg=237 guibg=#e6dede ctermbg=254
 	hi! link Folded FoldColumn
 endif
-	
+
 
 let s:yui_line_numbers_value = get(g:, 'yui_line_numbers', 'fade')
 if s:yui_line_numbers_value ==? 'fade'
@@ -313,7 +313,7 @@ elseif s:yui_line_numbers_value ==? 'emphasize'
 	hi SignColumn guifg=#443e39 ctermfg=237 guibg=#e6dede ctermbg=254
 	hi! link LineNr SignColumn
 endif
-	
+
 
 let s:yui_emphasized_comments_value = get(g:, 'yui_emphasized_comments', 0)
 if s:yui_emphasized_comments_value ==? 1
@@ -321,7 +321,7 @@ if s:yui_emphasized_comments_value ==? 1
 elseif s:yui_emphasized_comments_value ==? 0
 	hi Comment guifg=#766d66 ctermfg=242 guibg=NONE ctermbg=NONE
 endif
-	
+
 
 let s:yui_comments_value = get(g:, 'yui_comments', 'normal')
 if s:yui_comments_value ==? 'normal'
@@ -333,4 +333,4 @@ elseif s:yui_comments_value ==? 'emphasize'
 elseif s:yui_comments_value ==? 'bg'
 	hi Comment guifg=NONE ctermfg=NONE guibg=#e6dede ctermbg=254 gui=NONE cterm=NONE
 endif
-	
+

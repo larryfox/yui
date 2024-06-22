@@ -348,11 +348,7 @@ nvim:add_hlgroups {
 	hl { "lCursor", link = "Cursor" },
 	hl { "CursorIM", link = "Cursor" },
 	hl { "DiffAdd", guifg = p.green, guibg = colour.lighten(p.green, "AAA") },
-	hl {
-		"DiffChange",
-		guifg = d:call("DiffChange", "guibg", colour.lighten, "-AAA"),
-		guibg = colour.lighten(p.yellow, "AA"),
-	},
+	hl { "DiffChange", guifg = p.yellow, guibg = colour.lighten(p.yellow, 52) },
 	hl { "DiffDelete", guifg = p.red, guibg = colour.lighten(p.red, "AAA"), gui = "NONE" },
 	hl { "DiffText", guifg = p.blue, guibg = colour.lighten(p.blue, "AA") },
 	hl { "Directory", guifg = "fg", guibg = "NONE" },
@@ -365,8 +361,8 @@ nvim:add_hlgroups {
 	-- "NAMING CONVENTIONS". A lot of other groups are linked to
 	-- these, such as some Treesitter and LSP groups.
 	hl { "Constant", guifg = "fg", guibg = "NONE", gui = "bold" },
-	hl { "String", link = "Constant" },
-	hl { "Character", link = "Constant" },
+	hl { "String", guifg = "fg", guibg = "NONE", gui = "italic" },
+	hl { "Character", link = "String" },
 	hl { "Number", link = "Constant" },
 	hl { "Boolean", link = "Constant" },
 	hl { "Float", link = "Constant" },
