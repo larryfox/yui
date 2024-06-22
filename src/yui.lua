@@ -641,14 +641,20 @@ if has('nvim')
 
 	${@keyword.coroutine}
 	${@text.literal}
+	${@markup.raw}
 	${@constant.builtin}
 	${@function}
 	${@function.method.call}
 	${@text.strong}
+	${@markup.strong}
 	${@text.emphasis}
+	${@markup.italic}
 	${@method}
+	${@function.method}
 	${@field}
+	${@variable.member}
 	${@symbol}
+	${@string.special.symbol}
 	${@exception}
 	${@function.call}
 	${@method.call}
@@ -714,12 +720,20 @@ endif
 		specialkey_vim = hl { "SpecialKey", link = "Whitespace" },
 
 		["@text.literal"] = hl { "@text.literal", link = "helpExample" },
+		["@markup.raw"] = hl { "@markup.raw", link = "@text.literal" },
 		["@text.strong"] = hl { "@text.strong", guifg = "fg", guibg = "NONE", gui = "bold" },
+		["@markup.strong"] = hl { "@markup.strong", link = "@text.strong" },
 		["@text.emphasis"] = hl {
 			"@text.emphasis",
 			guifg = d:get("@text.strong", "guifg"),
 			guibg = d:get("@text.strong", "guibg"),
 			gui = d:get("@text.strong", "gui"),
+		},
+		["@markup.italic"] = hl {
+			"@markup.italic",
+			guifg = d:get("@text.strong", "guifg"),
+			guibg = d:get("@text.strong", "guibg"),
+			gui = "italic",
 		},
 		["@function.method.call"] = hl {
 			"@function.method.call",
@@ -769,6 +783,10 @@ endif
 			guibg = "NONE",
 			gui = { "bold" },
 		},
+		["@string.special.symbol"] = hl {
+			"@string.special.symbol",
+			link = "@symbol",
+		},
 		["@method.call"] = hl {
 			"@method.call",
 			guifg = "fg",
@@ -780,6 +798,10 @@ endif
 			guifg = "fg",
 			guibg = "NONE",
 			gui = "NONE",
+		},
+		["@variable.member"] = hl {
+			"@variable.member",
+			link = "@field",
 		},
 		["@keyword.function"] = hl {
 			"@keyword.function",
@@ -821,6 +843,10 @@ endif
 			guifg = d:get("@lsp.typemod.member.declaration", "guifg"),
 			guibg = d:get("@lsp.typemod.member.declaration", "guibg"),
 			gui = d:get("@lsp.typemod.member.declaration", "gui"),
+		},
+		["@function.method"] = hl {
+			"@function.method",
+			link = "@method",
 		},
 		["@diff.plus"] = hl {
 			"@diff.plus",

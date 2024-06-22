@@ -11,7 +11,7 @@ if exists('syntax_on')
 endif
 
 let g:colors_name = 'yui'
-
+	
 hi Normal guifg=#504944 ctermfg=239 guibg=#f1eded ctermbg=255
 hi NormalNC guifg=#4b4440 ctermfg=238 guibg=#eae4e4 ctermbg=254
 hi! link MsgArea Normal
@@ -245,14 +245,20 @@ if has('nvim')
 
 	hi @keyword.coroutine guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=bold cterm=bold
 	hi! link @text.literal helpExample
+	hi! link @markup.raw @text.literal
 	hi! link @constant.builtin Constant
 	hi @function guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=underline,bold cterm=underline,bold
 	hi @function.method.call guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=italic cterm=italic
 	hi @text.strong guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=bold cterm=bold
+	hi! link @markup.strong @text.strong
 	hi @text.emphasis guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=bold cterm=bold
+	hi @markup.italic guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=italic cterm=italic
 	hi @method guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=underline,bold cterm=underline,bold
+	hi! link @function.method @method
 	hi @field guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+	hi! link @variable.member @field
 	hi @symbol guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=bold cterm=bold
+	hi! link @string.special.symbol @symbol
 	hi! link @exception Normal
 	hi @function.call guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=italic cterm=italic
 	hi @method.call guifg=fg ctermfg=fg guibg=NONE ctermbg=NONE gui=italic cterm=italic
@@ -303,7 +309,7 @@ elseif s:yui_folds_value ==? 'emphasize'
 	hi FoldColumn guifg=#443e39 ctermfg=237 guibg=#e6dede ctermbg=254
 	hi! link Folded FoldColumn
 endif
-
+	
 
 let s:yui_line_numbers_value = get(g:, 'yui_line_numbers', 'fade')
 if s:yui_line_numbers_value ==? 'fade'
@@ -313,7 +319,7 @@ elseif s:yui_line_numbers_value ==? 'emphasize'
 	hi SignColumn guifg=#443e39 ctermfg=237 guibg=#e6dede ctermbg=254
 	hi! link LineNr SignColumn
 endif
-
+	
 
 let s:yui_emphasized_comments_value = get(g:, 'yui_emphasized_comments', 0)
 if s:yui_emphasized_comments_value ==? 1
@@ -321,7 +327,7 @@ if s:yui_emphasized_comments_value ==? 1
 elseif s:yui_emphasized_comments_value ==? 0
 	hi Comment guifg=#766d66 ctermfg=242 guibg=NONE ctermbg=NONE
 endif
-
+	
 
 let s:yui_comments_value = get(g:, 'yui_comments', 'normal')
 if s:yui_comments_value ==? 'normal'
@@ -333,4 +339,4 @@ elseif s:yui_comments_value ==? 'emphasize'
 elseif s:yui_comments_value ==? 'bg'
 	hi Comment guifg=NONE ctermfg=NONE guibg=#e6dede ctermbg=254 gui=NONE cterm=NONE
 endif
-
+	
